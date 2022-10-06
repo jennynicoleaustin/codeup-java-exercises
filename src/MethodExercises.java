@@ -45,7 +45,7 @@ public class MethodExercises {
         return res;
     } // modulus method close
 
-    public static int getInteger(int min, int max) {
+    public static void getInteger(int min, int max) {
         Scanner scanner = new Scanner(System.in);
 
         System.out.println("Enter a number between 1 and 10: ");
@@ -56,7 +56,6 @@ public class MethodExercises {
         } else {
             System.out.println("You entered " + userInput);
         }
-        return userInput;
     } // getInteger method close
 
     public static int calculateFactorial(int userInput) {
@@ -68,6 +67,7 @@ public class MethodExercises {
         return factorial;
     }
 
+
     public static int factorialGame() {
         int factorial = 1;
         String choice;
@@ -77,32 +77,29 @@ public class MethodExercises {
         choice = scanner.nextLine();
         System.out.println(choice);
 
-        while (choice.equalsIgnoreCase("y")) {
-            int userInput;
+        if (choice.equalsIgnoreCase("y")) {
 
             do {
-               getInteger(1, 10);
+                int userInput = 2; // fix me
+                getInteger(1, 10);
                 System.out.println(userInput);
                 calculateFactorial(userInput);
+                break;
             }
-            while (userInput >= 1 && userInput <= 10);
+            while (scanner.hasNextInt()); // this works to stop the loop from restarting getInt, I am assuming cause it reads the output from the system.
+            System.out.println("Do you want to play again? (y/n): ");
+            choice = scanner.nextLine();
+            if (choice.equalsIgnoreCase("n")) {
+                System.out.println("Fine! I didn't want to calculate it anyway!");
+            }
 
-    } //choice while close
 
-        System.out.println("Did you make it?");
+        } else {
+            System.out.println("fine dont play my game!");
+        } //choice if close
+
         return factorial;
-} // calculateFactorial close
+    } // calculateFactorial close
 
 } // MethodsExercises class close
 
-//        while (choice.equalsIgnoreCase("y")) {
-//                int userInput;
-//                userInput = getInteger(1, 10);
-//                if (userInput < 1 || userInput > 10) {
-//        for (int i = 1; i <= userInput; i++) {
-//        factorial = factorial * i;
-//        System.out.println(factorial);
-//
-//        }
-//        choice = "n";
-//        break;
