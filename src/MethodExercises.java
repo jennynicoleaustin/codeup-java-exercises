@@ -7,8 +7,11 @@ public class MethodExercises {
         multiplication(2, 3);
         divide(12, 2);
         remainder(6, 2);
+//        getInteger(1, 10);
 
-        getInteger(1, 10);
+        factorialGame();
+// calculateFactorial(4);
+
 
     } //main method close
 
@@ -51,9 +54,55 @@ public class MethodExercises {
         if (userInput < 1 || userInput > 10) {
             getInteger(min, max);
         } else {
-            System.out.println(userInput);
+            System.out.println("You entered " + userInput);
         }
         return userInput;
     } // getInteger method close
 
+    public static int calculateFactorial(int userInput) {
+        int factorial = 1;
+        for (int i = 1; i <= userInput; i++) {
+            factorial = factorial * i;
+        }
+        System.out.println(factorial);
+        return factorial;
+    }
+
+    public static int factorialGame() {
+        int factorial = 1;
+        String choice;
+        Scanner scanner = new Scanner(System.in);
+
+        System.out.println("Do you want to calculate the factorial of a number? (y/n): ");
+        choice = scanner.nextLine();
+        System.out.println(choice);
+
+        while (choice.equalsIgnoreCase("y")) {
+            int userInput;
+
+            do {
+               getInteger(1, 10);
+                System.out.println(userInput);
+                calculateFactorial(userInput);
+            }
+            while (userInput >= 1 && userInput <= 10);
+
+    } //choice while close
+
+        System.out.println("Did you make it?");
+        return factorial;
+} // calculateFactorial close
+
 } // MethodsExercises class close
+
+//        while (choice.equalsIgnoreCase("y")) {
+//                int userInput;
+//                userInput = getInteger(1, 10);
+//                if (userInput < 1 || userInput > 10) {
+//        for (int i = 1; i <= userInput; i++) {
+//        factorial = factorial * i;
+//        System.out.println(factorial);
+//
+//        }
+//        choice = "n";
+//        break;
