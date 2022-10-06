@@ -2,10 +2,10 @@ package util;
 
 import java.util.Scanner;
 
-public class input {
+public class Input {
     private Scanner sc;
 
-    public input() {
+    public Input() {
         this.sc = new Scanner(System.in);
     }
 
@@ -39,7 +39,7 @@ public class input {
 
     }
 
-    public double getDouble() {
+    public double getDouble(int i, int i1) {
         System.out.println("Enter an really big integer:");
         return this.sc.nextDouble();
     }
