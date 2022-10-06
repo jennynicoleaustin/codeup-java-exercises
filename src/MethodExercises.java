@@ -9,8 +9,9 @@ public class MethodExercises {
         remainder(6, 2);
 //        getInteger(1, 10);
 
-        factorialGame();
+        Scanner scanner = new Scanner(System.in);
 // calculateFactorial(4);
+        factorialGame(scanner);
 
 
     } //main method close
@@ -45,61 +46,66 @@ public class MethodExercises {
         return res;
     } // modulus method close
 
-    public static void getInteger(int min, int max) {
+    public static int getInteger(int min, int max) {
         Scanner scanner = new Scanner(System.in);
-
-        System.out.println("Enter a number between 1 and 10: ");
+        if (!scanner.hasNextInt()) {
+            System.out.println("That isn't even a number!");
+            return getInteger(min, max);
+        }
         int userInput = scanner.nextInt();
-
-        if (userInput < 1 || userInput > 10) {
-            getInteger(min, max);
-        } else {
+        if (userInput >= min && userInput <= max) {
             System.out.println("You entered " + userInput);
+            return userInput;
+        } else {
+            System.out.println("Lets try that again!");
+            return getInteger(min, max);
         }
     } // getInteger method close
 
-    public static int calculateFactorial(int userInput) {
+    public static long calculateFactorial(int num) {
         int factorial = 1;
-        for (int i = 1; i <= userInput; i++) {
-            factorial = factorial * i;
+        for (int i = 1; i <= num; i += 1) {
+            factorial *= i;
         }
         System.out.println(factorial);
         return factorial;
     }
 
 
-    public static int factorialGame() {
-        int factorial = 1;
+    public static void factorialGame(Scanner scanner) {
+        boolean willContinue;
         String choice;
-        Scanner scanner = new Scanner(System.in);
 
         System.out.println("Do you want to calculate the factorial of a number? (y/n): ");
         choice = scanner.nextLine();
         System.out.println(choice);
 
-        if (choice.equalsIgnoreCase("y")) {
-
-            do {
-                int userInput = 2; // fix me
-                getInteger(1, 10);
-                System.out.println(userInput);
-                calculateFactorial(userInput);
-                break;
-            }
-            while (scanner.hasNextInt()); // this works to stop the loop from restarting getInt, I am assuming cause it reads the output from the system.
-            System.out.println("Do you want to play again? (y/n): ");
-            choice = scanner.nextLine();
-            if (choice.equalsIgnoreCase("n")) {
-                System.out.println("Fine! I didn't want to calculate it anyway!");
-            }
+        do {
+            System.out.println("Enter a integer between 1 and 10");
+            int userInt = getInteger(1, 10);
+            System.out.println(calculateFactorial(userInt));
+        }
+        while (!choice.equalsIgnoreCase("y") && !choice.equalsIgnoreCase("n"));
 
 
-        } else {
-            System.out.println("fine dont play my game!");
-        } //choice if close
-
-        return factorial;
     } // calculateFactorial close
 
+    public static int randomWithRange(int min, int max) {
+        int range = (max - min) + 1;
+        return (int) (Math.random() * range) + min;
+    }
+
+    public static void rollDiceGame(Scanner scanner) {
+        String choice;
+        System.out.println("How many sides are on the dice?");
+        int sides = getInteger(1, 20);
+        do {
+            System.out.println("You rolled a " +randomWithRange(1,sides) + "and a " + randomWithRange(1, sides));
+            do {
+                System.out.println("Wanna roll again? y/n?");
+                choice = scanner.next().trim;
+            } while (!choice.equalsIgnoreCase("y") && !choice.equalsIgnoreCase("n"));
+        } while (!choice.equalsIgnoreCase("n"));
+    }
 } // MethodsExercises class close
 
