@@ -32,6 +32,13 @@ public class Input {
         } while (input < min || input > max);
         return input;
     }
+    public int getInt(int min, int max) {
+        int input;
+        do {
+            input = this.sc.nextInt();
+        } while (input < min || input > max);
+        return input;
+    }
 
     public int getInt() {
         System.out.println("Enter an integer:");
