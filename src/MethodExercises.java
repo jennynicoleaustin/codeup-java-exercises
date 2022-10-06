@@ -103,7 +103,7 @@ public class MethodExercises {
             System.out.println("You rolled a " +randomWithRange(1,sides) + "and a " + randomWithRange(1, sides));
             do {
                 System.out.println("Wanna roll again? y/n?");
-                choice = scanner.next().trim;
+                choice = scanner.next();
             } while (!choice.equalsIgnoreCase("y") && !choice.equalsIgnoreCase("n"));
         } while (!choice.equalsIgnoreCase("n"));
     }
