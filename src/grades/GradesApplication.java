@@ -48,7 +48,6 @@ public class GradesApplication {
 
         String username = sc.nextLine();
 
-//        If the given input does not match up with a key in your map, tell the user that no users with that username were found. If the given username does exist, display information about that student, including their name and their grades.
         if(students.get(username) == null) {
             System.out.println("No users with that username found");
         } else {
