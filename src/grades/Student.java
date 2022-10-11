@@ -6,12 +6,17 @@ public class Student {
 
     private String name;
     private ArrayList<Integer> grades;
+    private double average;
 
     public Student(String name) {
         this.name = name;
         this.grades = new ArrayList<>();
+//        this.average = getAverage();
     }
 
+public String toString() {
+        return "Name: " + this.name + " | Average: " + getAverage() + " |";
+}
     public String getName() {
         return name;
     }
@@ -20,14 +25,30 @@ public class Student {
         grades.add(grade);
     }
 
-    public double getGradeAverage () {
+//    public double calculateAverage () {
+//        double sum = 0;
+//        int i = 0;
+//        int numGrades = grades.size();
+//        while(i < numGrades) {
+//            sum += grades.get(i);
+//            i++;
+//        } double average = sum / numGrades;
+//        return this.average = average;
+//    }
+
+    public double getAverage() {
         double sum = 0;
         int i = 0;
         int numGrades = grades.size();
+        double average;
         while(i < numGrades) {
             sum += grades.get(i);
             i++;
-        }
-        return sum / numGrades;
+        } average = sum / numGrades;
+        return average;
     }
+
+//    public void setAverage(double average) {
+//        this.average = getAverage();
+//    }
 }

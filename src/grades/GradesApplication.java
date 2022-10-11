@@ -6,7 +6,6 @@ import java.util.Scanner;
 public class GradesApplication {
 
 
-
     public static void main(String[] args) {
 
 
@@ -38,10 +37,9 @@ public class GradesApplication {
         students.put("dinojennycodes", jenny);
         students.put("ericf", eric);
 
-
-
-
-        System.out.println("Welcome!");
+// User Interface
+        String choice = "y";
+    do {System.out.println("Welcome!");
         System.out.println("Here are the GitHub usernames of our students:");
         System.out.println(students.keySet());
         System.out.println("What student would you like to see more information on?");
@@ -50,11 +48,24 @@ public class GradesApplication {
 
         String username = sc.nextLine();
 
-        System.out.println(students.get(username));
+//        If the given input does not match up with a key in your map, tell the user that no users with that username were found. If the given username does exist, display information about that student, including their name and their grades.
+        if(students.get(username) == null) {
+            System.out.println("No users with that username found");
+        } else {
+            System.out.println(students.get(username) + " Git username: " + username);
+        }
 
-
-
-
+        System.out.println("Do you wish to continue? y/n: ");
+        choice = sc.nextLine();
     }
-}
+        while (choice.equalsIgnoreCase("y"));
+
+
+
+
+
+    } // main method close
+
+
+} // GradesApplication class close
 
