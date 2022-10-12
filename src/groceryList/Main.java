@@ -31,7 +31,17 @@ public class Main {
                     "6. Pantry\n" +
                     "7. Other");
 
-            String category =
+            String category = sc.nextLine().toLowerCase();
+            System.out.println(category);
+
+            System.out.println("Enter the name of the item:");
+            String item = sc.nextLine().toLowerCase();
+            System.out.println(item);
+
+            System.out.println("How many?");
+            int numItem = sc.nextInt();
+            System.out.println(numItem);
+
 
         } else {
             System.out.println("Thank you for using the Grocery List App!");
