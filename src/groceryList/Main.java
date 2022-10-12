@@ -12,23 +12,30 @@ public class Main {
         System.out.println("Welcome to the Grocery List App");
         System.out.println("Would you like to make a new grocery list? y/n:");
         String choice = sc.nextLine();
-        HashMap<String, Item> groceryList = new HashMap<>();
+        HashMap<Item, String> groceryList = new HashMap<>();
 
 
         if (choice.equalsIgnoreCase("y")) {
-            promptNewItem(sc);
+            groceryList = (HashMap<Item, String>) promptNewItem(sc);
+// issue: if you say n to adding a new item it still asks if you want to finalize your list
+            System.out.println("Are you ready to finalize your list? y/n:");
+            String finalize = sc.nextLine();
+            if (finalize.equalsIgnoreCase("y")) {
+                System.out.println(groceryList);}
+            else {
+                groceryList = (HashMap<Item, String>) promptNewItem(sc);
+            }
         } else {
             System.out.println("Thank you for using the Grocery List App!");
         }
-        System.out.println("Are you ready to finalize your list? y/n:");
-        sc.nextLine();
-        System.out.println(groceryList);
+// need to wrap this so it doesn't run if n is selected.
+
 
 
     } //main method close
 
-    public static Map<String, Item> promptNewItem(Scanner sc) {
-//        HashMap<String, Item> groceryList = new HashMap<>();
+    public static Map<Item, String> promptNewItem(Scanner sc) {
+        HashMap<Item, String> groceryList = new HashMap<>();
         String anotherItem;
         System.out.println("Would you like to add a new item? y/n:");
         anotherItem = sc.nextLine();
@@ -55,14 +62,20 @@ public class Main {
 
             Item newItem = new Item(item, numItem, category);
             groceryList.put(newItem, category);
-            System.out.println(newItem);
-//            System.out.println("The following has been added to your list: " + category + " | " + item + " | " + numItem);
+            System.out.println("The following has been added to your list: " + category + " | " + item + " | " + numItem);
 
             System.out.println("Would you like to add another new item? y/n:");
             anotherItem = sc.nextLine();
         }
+        System.out.println(groceryList);
         return groceryList;
+
+
     } // prompt New Item method close
 
+//        for(Entry <Item, String> entry : groceryList.entrySet())
+//        {
+//            entry.getKey(). // to get all the values
+//        }
 
 } //main class close
