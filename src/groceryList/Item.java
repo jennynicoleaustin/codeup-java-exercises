@@ -2,18 +2,31 @@ package groceryList;
 
 public class Item {
     private String name;
-    private int num;
+    private int numItem;
+
     private String category;
 
-    public Item(String name, int num, String category) {
+    public Item(String name, int numItem, String category) {
         this.name = name;
-        this.num = num;
+        this.numItem = numItem;
         this.category = category;
+
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public int getNumItem() {
+        return numItem;
+    }
+
+    public String getCategory() {
+        return category;
     }
 
     public String toString () {
-        return name + num;
+        return name + " | " + numItem;
 
     }
 } // item class close
-//"The following has been added to your list: " + category + " | " + name + " | " + num;
