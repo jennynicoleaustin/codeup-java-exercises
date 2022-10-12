@@ -1,37 +1,19 @@
 package groceryList;
 
-import java.util.HashMap;
-
 public class Item {
     private String name;
     private int num;
     private String category;
-    private HashMap<Integer, String> categories = new HashMap<>();
 
-    private void setCategories() {
-        categories.put(1, "meat");
-        categories.put(2, "dairy");
-        categories.put(3, "frozen");
-        categories.put(4, "produce");
-        categories.put(5, "bakery");
-        categories.put(6, "pantry");
-        categories.put(7, "other");
-    }
-
-    public String getCategory(int catNum) {
-        this.category = categories.get(catNum);
-        return category;
-    }
-
-    public Item(String name, int num, int catNum) {
+    public Item(String name, int num, String category) {
         this.name = name;
         this.num = num;
-        this.category = getCategory(catNum);
+        this.category = category;
     }
 
-  public Item(){
-        this.name = "testName";
-        this.num = 2;
-        this.category = "testcat";
-  }
-}
+    public String toString () {
+        return name + num;
+
+    }
+} // item class close
+//"The following has been added to your list: " + category + " | " + name + " | " + num;
