@@ -6,7 +6,6 @@ public class Student {
 
     private String name;
     private ArrayList<Integer> grades;
-    private double average;
 
     public Student(String name) {
         this.name = name;
