@@ -20,7 +20,7 @@ public class Main {
 
         choice = sc.nextLine();
 
-        if (choice.equalsIgnoreCase("y")) {
+        do {
 
             System.out.println("Please select a category for your item.\n" +
                     "1. Dairy\n" +
@@ -42,10 +42,16 @@ public class Main {
             int numItem = sc.nextInt();
             System.out.println(numItem);
 
-
-        } else {
-            System.out.println("Thank you for using the Grocery List App!");
+            System.out.println("Would you like to add another item? ");
+            choice = sc.nextLine();
         }
+        while (choice.equalsIgnoreCase("y"));
+            System.out.println("Would you like to finalize your list?");
+
 
     } //main method close
+
+    public static void promptNewItem() {
+
+    }
 } //main class close
