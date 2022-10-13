@@ -24,6 +24,21 @@ public class Input {
         return (input.equalsIgnoreCase("y") || input.equalsIgnoreCase("yes"));
     }
 
+    // Error handling version - which for the record is silly.
+    public int getIntErr(int min, int max, String prompt) {
+        int input;
+        try {
+            do {
+                System.out.println(prompt);
+                input = Integer.valueOf(getString());
+            } while (input < min || input > max);
+            return input;
+        } catch (NumberFormatException e) {
+            throw new NumberFormatException("You did not enter a number");
+        }
+    }
+
+
     public int getInt(int min, int max, String prompt) {
         int input;
         do {
@@ -32,6 +47,7 @@ public class Input {
         } while (input < min || input > max);
         return input;
     }
+
     public int getInt(int min, int max) {
         int input;
         do {
@@ -60,4 +76,5 @@ public class Input {
         } while (input < min || input > max);
         return input;
     }
+
 }

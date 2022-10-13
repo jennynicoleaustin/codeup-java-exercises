@@ -78,7 +78,6 @@ public class Main {
                     break;
             }
 
-
             System.out.println("Enter the name of the item:");
             String name = sc.nextLine().toLowerCase();
 
