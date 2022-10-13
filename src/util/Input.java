@@ -60,7 +60,11 @@ public class Input {
     public static int getInt() {
         System.out.println("Enter an integer:");
         return sc.nextInt();
+    }
 
+    public static int getInt(String prompt) {
+        System.out.println(prompt);
+        return sc.nextInt();
     }
 
     public static double getDouble(int i, int i1) {
