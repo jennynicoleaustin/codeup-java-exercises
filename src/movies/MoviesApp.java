@@ -23,7 +23,7 @@ public class MoviesApp {
         while(choice != EXIT_CHOICE) {
             printMenu();
 
-            choice = input.getInt(0,5);
+            choice = Input.getInt(0,5);
 
             doChoice(choice);
 

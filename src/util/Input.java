@@ -3,29 +3,29 @@ package util;
 import java.util.Scanner;
 
 public class Input {
-    private Scanner sc;
+    private static Scanner sc = new Scanner(System.in);
 
-    public Input() {
-        this.sc = new Scanner(System.in);
+//    public Input() {
+//        this.sc = new Scanner(System.in);
+//    }
+
+    public static String getString() {
+        return sc.nextLine();
     }
 
-    public String getString() {
-        return this.sc.nextLine();
-    }
-
-    public String getString(String prompt) {
+    public static String getString(String prompt) {
         System.out.println(prompt);
         return getString();
     }
 
-    public boolean yesNo(String prompt) {
+    public static boolean yesNo(String prompt) {
         System.out.println(prompt);
-        String input = this.sc.next();
+        String input = sc.next();
         return (input.equalsIgnoreCase("y") || input.equalsIgnoreCase("yes"));
     }
 
     // Error handling version - which for the record is silly.
-    public int getIntErr(int min, int max, String prompt) {
+    public static int getIntErr(int min, int max, String prompt) {
         int input;
         try {
             do {
@@ -34,45 +34,46 @@ public class Input {
             } while (input < min || input > max);
             return input;
         } catch (NumberFormatException e) {
-            throw new NumberFormatException("You did not enter a number");
+            System.out.println("Number format error");
+            return getIntErr(min, max, prompt);
         }
     }
 
 
-    public int getInt(int min, int max, String prompt) {
+    public static int getInt(int min, int max, String prompt) {
         int input;
         do {
             System.out.println(prompt);
-            input = this.sc.nextInt();
+            input = sc.nextInt();
         } while (input < min || input > max);
         return input;
     }
 
-    public int getInt(int min, int max) {
+    public static int getInt(int min, int max) {
         int input;
         do {
-            input = this.sc.nextInt();
+            input = sc.nextInt();
         } while (input < min || input > max);
         return input;
     }
 
-    public int getInt() {
+    public static int getInt() {
         System.out.println("Enter an integer:");
-        return this.sc.nextInt();
+        return sc.nextInt();
 
     }
 
-    public double getDouble(int i, int i1) {
+    public static double getDouble(int i, int i1) {
         System.out.println("Enter an really big integer:");
-        return this.sc.nextDouble();
+        return sc.nextDouble();
     }
 
-    public double getDouble(double min, double max, String prompt) {
+    public static double getDouble(double min, double max, String prompt) {
         System.out.println(prompt);
         double input;
         do {
             System.out.println(prompt);
-            input = this.sc.nextDouble();
+            input = sc.nextDouble();
         } while (input < min || input > max);
         return input;
     }

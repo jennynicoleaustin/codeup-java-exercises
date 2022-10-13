@@ -1,9 +1,11 @@
 package util;
-
 public class Main {
     public static void main(String[] args) {
-        Input inputTest = new Input();
+        Input newInput = new Input();
 
-        inputTest.getIntErr(50,100, "enter a number between 50 and 100");
+        newInput.getIntErr(1,100, "enter a number from 1-100");
+
     }
-}
+
+
+    }
