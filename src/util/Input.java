@@ -30,7 +30,7 @@ public class Input {
         try {
             do {
                 System.out.println(prompt);
-                input = Integer.valueOf(getString());
+                input = Integer.parseInt(getString());
             } while (input < min || input > max);
             return input;
         } catch (NumberFormatException e) {

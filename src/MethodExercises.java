@@ -106,6 +106,6 @@ public class MethodExercises {
                 choice = scanner.next();
             } while (!choice.equalsIgnoreCase("y") && !choice.equalsIgnoreCase("n"));
         } while (!choice.equalsIgnoreCase("n"));
-    }
+    } // rolldice close
 } // MethodsExercises class close
 
