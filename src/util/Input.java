@@ -81,5 +81,21 @@ public class Input {
         } while (input < min || input > max);
         return input;
     }
-
+    public double getDouble(double min, double max) {
+        double input;
+        try {
+            do {
+                String userInput = getString("Enter a number between " + min + " and " + max + ".");
+                input = Double.parseDouble(userInput);
+                if (input < min || input > max) {
+                    System.out.println("Input invalid");
+                }
+            } while (input < min || input > max);
+            System.out.println("Input acceptable");
+            return input;
+        } catch (NumberFormatException nfe) {
+            nfe.printStackTrace();
+            return getDouble(min, max);
+        }
+    }
 }
